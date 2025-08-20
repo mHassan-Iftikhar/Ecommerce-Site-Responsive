@@ -78,8 +78,8 @@ function render(): void {
 	}
 
 	grid.innerHTML = filtered.map(p => `
-		<div class="relative bg-white rounded-2xl shadow-md p-4 transition hover:shadow-lg h-80 flex flex-col justify-between cursor-pointer" onclick="window.location.href='../productInfo/index.html?id=${p.id}'">
-			<div class="flex justify-between items-start" onclick="event.stopPropagation()">
+		<div class="relative bg-white rounded-2xl shadow-md p-4 transition hover:shadow-lg h-85 flex flex-col justify-between cursor-pointer" onclick="window.location.href='../productInfo/index.html?id=${p.id}'">
+			<div class="flex justify-between  w-[13vw] items-start" onclick="event.stopPropagation()">
 				<div>
 					<h3 class="text-base font-medium text-gray-900">${p.title}</h3>
 					<p class="text-sm font-semibold text-gray-700">${formatPrice(p.price)}</p>

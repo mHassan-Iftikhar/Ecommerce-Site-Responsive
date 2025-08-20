@@ -73,12 +73,12 @@ function renderCategory(title, items) {
 		</div>
 	`).join('') : `<div class="text-sm text-gray-500">No items found in ${title}</div>`;
     return `
-		<section class="bg-white rounded-2xl shadow-md p-5">
-			<div class="flex items-center justify-between mb-4">
+		<section class="flex flex-wrap w-fit h-auto bg-white rounded-2xl shadow-md p-5">
+			<div class="w-full flex items-center justify-between mb-4">
 				<h2 class="text-xl font-semibold text-gray-900">${title}</h2>
 				<a href="../category/index.html?name=${encodeURIComponent(title)}" class="text-sm text-gray-700 hover:underline">View all</a>
 			</div>
-			<div class="flex gap-4">${content}</div>
+			<div class="flex flex-wrap w-fit h-auto gap-4">${content}</div>
 		</section>
 	`;
 }

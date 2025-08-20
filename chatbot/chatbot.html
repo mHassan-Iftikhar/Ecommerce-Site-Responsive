@@ -1,0 +1,38 @@
+<!-- Chatbot HTML structure -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Bot</title>
+</head>
+
+<body>
+    <div class="chatbot-container hidden" id="chatContainer">
+        <div class="chat-header">
+            <div>
+                <i class="fa-brands fa-stack-exchange"></i>
+                <h2>ShopBot Assistant</h2>
+            </div>
+            <button class="close-btn" id="closeChat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! I'm your e-commerce assistant. I can help you with product information, order status, returns,
+                and any questions about our online store. How can I assist you today?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your question about our e-commerce store...">
+            <button id="sendButton"><i class="fas fa-paper-plane"></i> Send</button>
+        </div>
+    </div>
+    <div class="chatbot-icon" id="chatbotIcon">
+        <i class="fas fa-robot"></i>
+    </div>
+</body>
+
+</html>
