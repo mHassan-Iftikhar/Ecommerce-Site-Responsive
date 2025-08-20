@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+    <main>
+        <div class="signup-container flex flex-col">
+            <header id="btn" class="absolute top-5 left-5 bg-gray-100 rounded-lg">
+                <a href="../index.html" class="text-gray-600"><span class="mr-2">←</span>Back to Homepage</a>
+            </header>
+            <h2>Logo</h2>
+            <div class="signup-content">
+                <div class="signup-form">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Username" id="username">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Email" id="email">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Password" id="password">
+                </div>
+                <span id="error-message"></span>
+                <div class="auth">
+                    <a href="../login/index.html">Login</a>
+                    <button id="signup">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../utils/toast.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

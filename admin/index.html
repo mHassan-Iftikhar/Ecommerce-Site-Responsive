@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overflow-x: hidden;
+        width: 100%;
+      }
+
+      .sidebar {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+        z-index: 40;
+        height: 100vh;
+        position: fixed;
+        overflow-y: auto;
+        left: 0;
+        top: 0;
+      }
+
+      .sidebar.collapsed {
+        transform: translateX(-100%);
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 30;
+      }
+
+      .overlay.active {
+        display: block;
+      }
+
+      .admin-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        transition: all 0.3s ease;
+        min-height: 100vh;
+      }
+
+      @media (min-width: 768px) {
+        .sidebar {
+          position: fixed;
+          height: 100vh;
+        }
+
+        .sidebar.collapsed {
+          transform: translateX(0);
+        }
+
+        .overlay.active {
+          display: none;
+        }
+
+        .main-content {
+          margin-left: 256px;
+          width: calc(100% - 256px);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .main-content {
+          width: 100%;
+        }
+
+        .addProduct {
+          width: 100% !important;
+        }
+      }
+
+      .card-responsive {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .grid-responsive {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        width: 100%;
+      }
+
+      .menu-toggle {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 50;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .menu-toggle i {
+        font-size: 1.5rem;
+        color: #4f46e5;
+      }
+
+      .menu-close {
+        display: none;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 60;
+        background: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      @media (min-width: 768px) {
+        .menu-toggle {
+          display: none;
+        }
+
+        .menu-close {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-100 min-h-screen font-sans">
+    <!-- Mobile menu button -->
+    <button id="menuToggle" class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile close button (inside sidebar) -->
+    <button id="closeSidebar" class="menu-close">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div id="overlay" class="overlay"></div>
+
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="sidebar bg-white shadow-lg p-6 w-64 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-light text-gray-700">Admin Panel</h2>
+          </div>
+          <nav class="flex flex-col gap-3">
+            <button
+              id="dashboardBtn"
+              class="text-gray-500 font-light py-2 px-4 rounded-lg hover:bg-gray-100 transition text-left"
+            >
+              Dashboard
+            </button>
+            <button
+              id="usersBtn"
+              class="text-gray-500 font-light py-2 px-4 rounded-lg hover:bg-gray-100 transition text-left"
+            >
+              Users
+            </button>
+            <button
+              id="productsBtn"
+              class="text-gray-500 font-light py-2 px-4 rounded-lg hover:bg-gray-100 transition text-left"
+            >
+              Products
+            </button>
+            <button
+              id="ordersBtn"
+              class="text-gray-500 font-light py-2 px-4 rounded-lg hover:bg-gray-100 transition text-left"
+            >
+              Orders
+            </button>
+          </nav>
+        </div>
+        <div class="mt-8">
+          <a
+            href="../index.html"
+            class="flex items-center text-green-600 font-light hover:bg-gray-100 px-4 py-2 rounded-lg transition"
+          >
+            <span class="mr-2">←</span> Back to Store
+          </a>
+        </div>
+      </aside>
+
+      <!-- Main Panel -->
+      <main id="main-content" class="main-content p-4 md:p-8">
+        <div class="admin-container"></div>
+      </main>
+    </div>    
+    <script src="../utils/toast.js"></script>
+    <script type="module" src="./script.js"></script>
+  </body>
+</html>

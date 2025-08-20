@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Info - E-commerce Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-gray-100 font-[poppins]">
+    <main class="w-full h-full p-6">
+        <!-- Header -->
+        <nav class="flex gap-5 items-center justify-between mb-8">
+            <a href="../index.html" class="text-gray-600 flex items-center gap-2 hover:text-gray-900 transition-colors">
+                <span class="text-lg">←</span> Back to Homepage
+            </a>
+            <div class="flex gap-2">
+                <a href="../wishlist/index.html" class="text-gray-900 bg-gray-200 rounded-lg p-4 flex items-center gap-2 hover:bg-gray-300 transition-colors">
+                    <i class="fa-regular fa-heart"></i>
+                </a>
+                <a href="../cart/index.html" class="text-gray-900 bg-gray-200 rounded-lg p-4 flex items-center gap-2 hover:bg-gray-300 transition-colors">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Product Details Container -->
+        <div id="productDetailContainer" class="bg-white rounded-2xl shadow-lg p-8 max-w-6xl mx-auto h-auto">
+            <!-- Product details will be loaded here dynamically -->
+        </div>
+    </main>
+
+    <script src="../utils/toast.js"></script>
+    <script type="module" src="../script.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>

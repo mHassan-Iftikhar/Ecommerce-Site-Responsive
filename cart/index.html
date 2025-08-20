@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="main">
+        <div class="cart-container">
+            <div class="cart-header">
+                <a class="goBack" href="../index.html">← Back to Shopping</a>
+                <h2>Your Shopping Cart</h2>
+            </div>
+            
+            <!-- Cart items will be dynamically loaded here -->
+            <div class="cart-items"></div>
+        </div>
+    </div>
+
+    <script src="../utils/toast.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
