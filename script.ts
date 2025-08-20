@@ -135,13 +135,6 @@ function checkUserLoginStatus(): boolean {
 function updateUIForLoginStatus(): void {
     const isLoggedIn = checkUserLoginStatus();
 
-    // const adminPanel = document.querySelector('.adminPanel') as HTMLElement | null;
-    // const ADMIN_EMAIL = 'hassan@admin.com';
-    // // User is authenticated
-    // if (emailValue === ADMIN_EMAIL && adminPanel) {
-    //     adminPanel.style.display = isLoggedIn ? 'block' : 'none';
-    // }
-
     navButtons.forEach((nav) => {
         nav.style.display = isLoggedIn ? 'none' : '';
     });
